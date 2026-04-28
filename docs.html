@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>housebot — documentation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .container { max-width: 720px; width: 100%; }
+
+    /* Back link */
+    .back-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #58a6ff;
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* Page title */
+    .page-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f0f6fc;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: #8b949e;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Divider */
+    hr { border: none; border-top: 1px solid #21262d; margin: 2rem 0; }
+
+    /* Section title */
+    .section-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #6e7681;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* Section heading */
+    h2 {
+      font-size: 1.15rem;
+      color: #f0f6fc;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Body text */
+    p { font-size: 0.88rem; color: #c9d1d9; line-height: 1.7; margin-bottom: 0.75rem; }
+
+    /* Note / callout */
+    .note {
+      background: #161b22;
+      border-left: 3px solid #58a6ff;
+      border-radius: 0 8px 8px 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.83rem;
+      color: #8b949e;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+
+    /* Code block */
+    .code-block {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0 1.25rem;
+    }
+    .code-block code {
+      font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+      font-size: 0.8rem;
+      color: #79c0ff;
+      line-height: 1.85;
+      display: block;
+      white-space: pre;
+    }
+
+    /* Table */
+    .doc-table { width: 100%; border-collapse: collapse; margin: 0.75rem 0 1.25rem; font-size: 0.83rem; }
+    .doc-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      color: #f0f6fc;
+      font-weight: 600;
+      border-bottom: 1px solid #30363d;
+    }
+    .doc-table td {
+      padding: 0.55rem 0.75rem;
+      color: #c9d1d9;
+      border-bottom: 1px solid #21262d;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .doc-table td:first-child { color: #79c0ff; white-space: nowrap; font-weight: 500; }
+
+    /* Feature grid */
+    .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }
+    .feature {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+    }
+    .feature .icon { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .feature h3 { font-size: 0.85rem; color: #f0f6fc; font-weight: 600; margin-bottom: 0.25rem; }
+    .feature p { font-size: 0.78rem; color: #8b949e; line-height: 1.5; margin: 0; }
+
+    /* Requirements list */
+    .req-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .req-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.85rem; color: #c9d1d9; line-height: 1.5;
+    }
+    .req-list li::before { content: "→"; color: #58a6ff; flex-shrink: 0; margin-top: 0.05rem; }
+
+    /* Footer */
+    footer { margin-top: 4rem; text-align: center; font-size: 0.75rem; color: #484f58; }
+    footer a { color: #58a6ff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <a class="back-link" href="index.html">← Back to housebot</a>
+
+  <h1 class="page-title">housebot — documentation</h1>
+  <p class="page-subtitle">Everything you need to install, configure, and use housebot.</p>
+
+  <hr />
+
+  <!-- What it does -->
+  <p class="section-title">What it does</p>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">🛒</div>
+      <h3>Shopping list</h3>
+      <p>Add, remove, and view items by category. Changes are instantly notified to all household members.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🌤️</div>
+      <h3>Weather</h3>
+      <p>Current conditions and multi-day forecasts, powered by Open-Meteo — free, no API key needed.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">📅</div>
+      <h3>Google Calendar</h3>
+      <p>Check, add, edit, and delete events by natural language. Optional — requires a Google account.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🎙️</div>
+      <h3>Voice messages</h3>
+      <p>Send a voice note and the bot transcribes and processes it automatically.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🌍</div>
+      <h3>Any language</h3>
+      <p>Write in Italian, Spanish, French, or any language — the bot detects and replies in the same language.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🌅</div>
+      <h3>Morning briefing</h3>
+      <p>A daily message at 07:30 (configurable) with weather, today's agenda, and a motivational quote.</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Requirements -->
+  <p class="section-title">Requirements</p>
+  <ul class="req-list">
+    <li>A MacBook or Mac Mini running macOS (everything else is installed automatically)</li>
+    <li>A WhatsApp number for the bot — a second SIM (shared household use) or your own number (personal use)</li>
+    <li>At least 8 GB RAM (16 GB recommended for better AI models)</li>
+    <li>A Google account — only if you want Google Calendar management (optional)</li>
+  </ul>
+
+  <hr />
+
+  <!-- Installation -->
+  <p class="section-title">Installation</p>
+  <p>Open the <strong style="color:#f0f6fc;">Terminal</strong> app (press <code style="color:#79c0ff; font-family: monospace;">⌘ Space</code>, type <em>Terminal</em>, press Enter) and run:</p>
+  <div class="code-block">
+    <code>mkdir housebot &amp;&amp; cd housebot
+curl -L -o housebot.zip https://github.com/gabnou/house-bot/releases/latest/download/housebot.zip
+unzip housebot.zip
+./install.sh</code>
+  </div>
+  <p>The installer takes care of everything: Homebrew, Python, Node.js, Ollama (private AI models), dependencies, and starting the bot for the first time.</p>
+
+  <hr />
+
+  <!-- Configuration -->
+  <p class="section-title">Configuration</p>
+  <p>When the installer finishes, open <a href="http://localhost:8000" style="color:#58a6ff;">http://localhost:8000</a> in your browser and go to the <strong style="color:#f0f6fc;">Configuration</strong> page. Follow the sections in order:</p>
+
+  <table class="doc-table">
+    <thead>
+      <tr><th>Section</th><th>What you do</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0. Bot display name</td><td>Choose the name the bot will show on WhatsApp</td></tr>
+      <tr><td>1. Private AI (Ollama)</td><td>Pick and download a local AI model. The default (<code style="color:#79c0ff; font-family:monospace;">llama3.2:3b</code>) works on any Mac with 8 GB RAM. Bigger models (8B+) give better results but need more memory.</td></tr>
+      <tr><td>2. WhatsApp Pairing</td><td>Scan a QR code to link the bot's WhatsApp number</td></tr>
+      <tr><td>3. Sender Restrictions</td><td>Send a message from each household member's phone, then approve them here</td></tr>
+      <tr><td>4. Location &amp; Briefing</td><td>Set your city for weather and choose the morning briefing language</td></tr>
+      <tr><td>5. Speech recognition</td><td>Choose the voice transcription quality (small = fast, large = more accurate)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">All sections are optional except WhatsApp Pairing. Shopping list and Weather work out of the box without Google Calendar. You can skip any section and come back later.</div>
+
+  <hr />
+
+  <!-- Updating -->
+  <p class="section-title">Updating</p>
+  <p>The easiest way is through the Control Panel at <a href="http://localhost:8000" style="color:#58a6ff;">http://localhost:8000</a> → Admin → HouseBot Software Update. Click <strong style="color:#f0f6fc;">⬆️ Update Now</strong> — it downloads, applies, and restarts everything automatically.</p>
+
+  <hr />
+
+  <!-- Commands -->
+  <p class="section-title">Commands</p>
+  <p>Send messages directly to the bot in a private WhatsApp chat. You don't need any special syntax — just write naturally.</p>
+
+  <h2>Shopping List</h2>
+  <div class="code-block">
+    <code>add milk and eggs
+add ibuprofen
+what's missing?
+I bought apples
+remove pasta
+clear the list</code>
+  </div>
+
+  <h2>Weather</h2>
+  <div class="code-block">
+    <code>weather now
+weather tomorrow
+weather next 4 days
+weather next 3 days in Madrid
+weather next 6 hours in Lecce</code>
+  </div>
+
+  <h2>Google Calendar</h2>
+  <div class="code-block">
+    <code>what do I have today?
+this week
+events in April
+add dinner with Mario Friday at 9pm
+delete dinner with Mario
+move doctor visit to April 6th at 11am</code>
+  </div>
+
+  <h2>Special commands</h2>
+  <div class="code-block">
+    <code>help
+who are you</code>
+  </div>
+  <p>All commands work in any language.</p>
+
+  <hr />
+
+  <!-- Managing the bot -->
+  <p class="section-title">Managing the bot</p>
+  <p>Once running, use the <strong style="color:#f0f6fc;">Control Panel</strong> at <a href="http://localhost:8000" style="color:#58a6ff;">http://localhost:8000</a> for everything: start/stop/restart services, switch AI models, monitor live status and logs, edit briefing settings, and manage household members.</p>
+  <p>For command-line control:</p>
+  <div class="code-block">
+    <code>./housebot.sh start       # start everything
+./housebot.sh stop        # stop everything
+./housebot.sh restart     # restart everything
+./housebot.sh status      # check what's running
+./housebot.sh logs        # view recent logs
+./housebot.sh logs-live   # follow logs in real time</code>
+  </div>
+
+</div>
+
+<footer>
+  <p>housebot &mdash; <em>made for learning purposes, and fixing family headaches.</em></p>
+  <p style="margin-top:0.4rem;"><a href="index.html">← Back</a> &nbsp;·&nbsp; <a href="https://github.com/gabnou/house-bot-releases/releases">Releases</a></p>
+</footer>
+
+</body>
+</html>
