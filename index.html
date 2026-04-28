@@ -22,7 +22,7 @@
 
     /* Hero */
     .hero { text-align: center; padding: 3rem 0 2.5rem; }
-    .hero img { max-width: 50%; margin-bottom: 1.5rem; }
+    .hero img { max-width: 25%; margin-bottom: 1.5rem; }
     .hero h1 { font-size: 2.4rem; font-weight: 700; color: #f0f6fc; letter-spacing: -0.5px; }
     .hero .tagline {
       margin-top: 0.75rem;
@@ -87,6 +87,14 @@
     .btn-download:hover { background: #2ea043; }
     .releases-link { display: block; margin-top: 0.75rem; font-size: 0.78rem; color: #58a6ff; text-decoration: none; }
     .releases-link:hover { text-decoration: underline; }
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #21262d; border: 1px solid #30363d; border-radius: 6px;
+      color: #8b949e; font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.75rem;
+      cursor: pointer; transition: background 0.15s, color 0.15s; margin-bottom: 1rem;
+    }
+    .copy-btn:hover { background: #30363d; color: #c9d1d9; }
+    .copy-btn.copied { color: #3fb950; border-color: #3fb950; }
 
     /* Divider */
     hr { border: none; border-top: 1px solid #21262d; margin: 2rem 0; }
@@ -125,8 +133,7 @@
   <div class="hero">
     <img src="housebot_logo_v2_dark.png" alt="housebot logo" />
     <h1>housebot</h1>
-    <p class="tagline">Your home assistant on WhatsApp — manage a shared shopping list, keep your Google Calendar in sync and check the weather, all by sending messages.</p>
-    <p class="tagline" style="margin-top:0.4rem; font-size:0.9rem;">No cloud subscriptions. No monthly fees. Everything runs on your own computer.</p>
+    <p class="tagline" style="font-size:0.9rem;">No cloud subscriptions. No monthly fees. Everything runs on your own computer.</p>
     <div class="badges">
       <span class="badge">macOS</span>
       <span class="badge">Private AI · Ollama</span>
@@ -147,6 +154,7 @@ curl -L -o housebot.zip \
 unzip housebot.zip
 ./install.sh</code>
     </div>
+    <button class="copy-btn" onclick="copyInstall(this)">📋 Copy commands</button>
     <a class="btn-download" href="https://github.com/gabnou/house-bot-releases/releases/latest/download/housebot.zip">⬇ Download latest zip</a>
     <a class="releases-link" href="https://github.com/gabnou/house-bot-releases/releases">All releases →</a>
   </div>
@@ -207,8 +215,17 @@ unzip housebot.zip
 
 <footer>
   <p>housebot &mdash; <em>made for learning purposes, and fixing family headaches.</em></p>
-  <p style="margin-top:0.4rem;"><a href="https://github.com/gabnou/house-bot-releases/releases">Releases</a></p>
 </footer>
+<script>
+function copyInstall(btn) {
+  const cmd = 'mkdir housebot && cd housebot\ncurl -L -o housebot.zip \\\n  https://github.com/gabnou/house-bot-releases/releases/latest/download/housebot.zip\nunzip housebot.zip\n./install.sh';
+  navigator.clipboard.writeText(cmd).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '📋 Copy commands'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
 
 </body>
 </html>
