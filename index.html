@@ -91,10 +91,13 @@
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: #21262d; border: 1px solid #30363d; border-radius: 6px;
       color: #8b949e; font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.75rem;
-      cursor: pointer; transition: background 0.15s, color 0.15s; margin-bottom: 1rem;
+      cursor: pointer; transition: background 0.15s, color 0.15s;
     }
     .copy-btn:hover { background: #30363d; color: #c9d1d9; }
     .copy-btn.copied { color: #3fb950; border-color: #3fb950; }
+    .install-block-wrap { position: relative; margin: 0 auto 1.25rem; }
+    .install-block-wrap .install-block { margin-bottom: 0.5rem; }
+    .install-block-footer { display: flex; justify-content: flex-start; }
 
     /* Divider */
     hr { border: none; border-top: 1px solid #21262d; margin: 2rem 0; }
@@ -146,15 +149,19 @@
   <div class="download-card">
     <h2>Install HouseBot</h2>
     <p class="version">Latest release — open Terminal and run:</p>
-    <div class="install-block">
-      <p>macOS — Terminal</p>
-      <code>mkdir housebot &amp;&amp; cd housebot
+    <div class="install-block-wrap">
+      <div class="install-block">
+        <p>macOS — Terminal</p>
+        <code>mkdir housebot &amp;&amp; cd housebot
 curl -L -o housebot.zip \
   https://github.com/gabnou/house-bot-releases/releases/latest/download/housebot.zip
 unzip housebot.zip
 ./install.sh</code>
+      </div>
+      <div class="install-block-footer">
+        <button class="copy-btn" onclick="copyInstall(this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy commands</button>
+      </div>
     </div>
-    <button class="copy-btn" onclick="copyInstall(this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy commands</button>
     <a class="btn-download" href="https://github.com/gabnou/house-bot-releases/releases/latest/download/housebot.zip">⬇ Download latest zip</a>
     <a class="releases-link" href="https://github.com/gabnou/house-bot-releases/releases">All releases →</a>
   </div>
