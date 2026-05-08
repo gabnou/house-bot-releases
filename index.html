@@ -178,7 +178,7 @@ unzip housebot.zip
         <p>macOS — Terminal</p>
         <code>mkdir kasettabot &amp;&amp; cd kasettabot
 curl -L -o kasettabot.zip \
-  https://github.com/gabnou/house-bot-releases/releases/latest/download/kasettabot.zip
+  https://github.com/gabnou/house-bot-releases/releases/download/kasettabot-latest/kasettabot.zip
 unzip kasettabot.zip
 ./install.sh</code>
       </div>
@@ -186,7 +186,7 @@ unzip kasettabot.zip
         <button class="copy-btn" onclick="copyKasettaInstall(this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy commands</button>
       </div>
     </div>
-    <a class="btn-download" href="https://github.com/gabnou/house-bot-releases/releases/latest/download/kasettabot.zip">⬇ Download latest zip</a>
+    <a class="btn-download" href="https://github.com/gabnou/house-bot-releases/releases/download/kasettabot-latest/kasettabot.zip">⬇ Download latest zip</a>
     <a class="releases-link" href="https://github.com/gabnou/house-bot-releases/releases">All releases →</a>
   </div>
 
@@ -257,7 +257,7 @@ function copyInstall(btn) {
   });
 }
 function copyKasettaInstall(btn) {
-  const cmd = 'mkdir kasettabot && cd kasettabot\ncurl -L -o kasettabot.zip \\\n  https://github.com/gabnou/house-bot-releases/releases/latest/download/kasettabot.zip\nunzip kasettabot.zip\n./install.sh';
+  const cmd = 'mkdir kasettabot && cd kasettabot\ncurl -L -o kasettabot.zip \\\n  https://github.com/gabnou/house-bot-releases/releases/download/kasettabot-latest/kasettabot.zip\nunzip kasettabot.zip\n./install.sh';
   navigator.clipboard.writeText(cmd).then(() => {
     btn.textContent = '✓ Copied!';
     btn.classList.add('copied');
