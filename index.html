@@ -177,7 +177,8 @@ unzip housebot.zip
       <div class="install-block">
         <p>macOS — Terminal</p>
         <code>mkdir kasettabot &amp;&amp; cd kasettabot
-curl -LO https://github.com/gabnou/house-bot-releases/releases/download/kasettabot-latest/kasettabot.zip
+curl -LO \
+    https://github.com/gabnou/house-bot-releases/releases/download/kasettabot-latest/kasettabot.zip
 unzip kasettabot.zip
 ./install.sh</code>
       </div>
@@ -256,7 +257,11 @@ function copyInstall(btn) {
   });
 }
 function copyKasettaInstall(btn) {
-  const cmd = 'mkdir kasettabot && cd kasettabot\ncurl -LO https://github.com/gabnou/house-bot-releases/releases/download/kasettabot-latest/kasettabot.zip\nunzip kasettabot.zip\n./install.sh';
+  const cmd = `mkdir kasettabot && cd kasettabot
+curl -LO \
+  https://github.com/gabnou/house-bot-releases/releases/download/kasettabot-latest/kasettabot.zip
+unzip kasettabot.zip
+./install.sh`;
   navigator.clipboard.writeText(cmd).then(() => {
     btn.textContent = '✓ Copied!';
     btn.classList.add('copied');
