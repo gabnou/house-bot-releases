@@ -168,6 +168,31 @@ unzip housebot.zip
 
   <hr />
 
+  <!-- KasettaBot Download -->
+  <div class="download-card">
+    <h2>Install KasettaBot 🇮🇹</h2>
+    <p class="version">Italian version — Latest release — open Terminal and run:</p>
+    <div class="install-block-wrap">
+      <div class="install-block">
+        <p>macOS — Terminal</p>
+        <code>mkdir kasettabot &amp;&amp; cd kasettabot
+curl -L -o kasettabot.zip \
+  https://github.com/gabnou/house-bot-releases/releases/latest/download/kasettabot.zip
+unzip kasettabot.zip
+./install.sh</code>
+      </div>
+      <div class="install-block-footer">
+        <button class="copy-btn" onclick="copyKasettaInstall(this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy commands</button>
+      </div>
+    </div>
+    <a class="btn-download" href="https://github.com/gabnou/house-bot-releases/releases/latest/download/kasettabot.zip">⬇ Download latest zip</a>
+    <a class="releases-link" href="https://github.com/gabnou/kasetta-bot/releases">All KasettaBot releases →</a>
+  </div>
+
+  <p style="text-align:center; font-size:0.75rem; color:#6e7681; margin-top:1.5rem; margin-bottom:2rem;"><strong>KasettaBot</strong> is the Italian-localized version of HouseBot. <a href="https://github.com/gabnou/kasetta-bot" style="color:#58a6ff;">Learn more about KasettaBot →</a></p>
+
+  <hr />
+
   <!-- Features -->
   <p class="section-title">What it does</p>
   <div class="features">
@@ -226,6 +251,14 @@ unzip housebot.zip
 <script>
 function copyInstall(btn) {
   const cmd = 'mkdir housebot && cd housebot\ncurl -L -o housebot.zip \\\n  https://github.com/gabnou/house-bot-releases/releases/latest/download/housebot.zip\nunzip housebot.zip\n./install.sh';
+  navigator.clipboard.writeText(cmd).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy commands'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+function copyKasettaInstall(btn) {
+  const cmd = 'mkdir kasettabot && cd kasettabot\ncurl -L -o kasettabot.zip \\\n  https://github.com/gabnou/house-bot-releases/releases/latest/download/kasettabot.zip\nunzip kasettabot.zip\n./install.sh';
   navigator.clipboard.writeText(cmd).then(() => {
     btn.textContent = '✓ Copied!';
     btn.classList.add('copied');
